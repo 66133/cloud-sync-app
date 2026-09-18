@@ -1,0 +1,13 @@
+{
+  "name": "story-analyzer-cloud-sync",
+  "version": "1.0.0",
+  "private": true,
+  "description": "短篇拆文助手 · 云端同步版（原应用前端 + 云端 IndexedDB 同步层 + 后端存储）",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "engines": {
+    "node": ">=16"
+  }
+}

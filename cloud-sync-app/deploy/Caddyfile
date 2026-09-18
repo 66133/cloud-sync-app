@@ -1,0 +1,20 @@
+# Caddy 反向代理配置（自动 HTTPS，最省事）
+#
+# 步骤：
+#   1. 安装 Caddy：sudo apt install -y caddy
+#      （其他系统见 https://caddyserver.com/docs/install）
+#   2. 把域名 DNS A 记录指到本服务器公网 IP
+#   3. 把本文件中 story.example.com 改成你的域名，
+#      覆盖 /etc/caddy/Caddyfile
+#   4. sudo systemctl reload caddy
+#
+# Caddy 会自动申请 Let's Encrypt 证书并续期，无需任何手动操作。
+
+story.example.com {
+	encode gzip
+
+	# SSE 长连接与流式 AI 输出的关键设置
+	flush_interval -1
+
+	reverse_proxy 127.0.0.1:3000
+}

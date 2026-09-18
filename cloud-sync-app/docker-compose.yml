@@ -1,0 +1,19 @@
+# 短篇拆文助手 · 云端同步版 —— Docker Compose 一键启动
+#
+#   docker compose up -d          # 启动（首次自动构建镜像）
+#   curl http://localhost:3000/api/health   # 验证
+#
+# 数据落在 ./data 目录（宿主机），删容器不丢数据；迁移时整个目录拷走即可。
+services:
+  story-sync:
+    build: .
+    container_name: story-sync
+    ports:
+      - "3000:3000"          # 冒号左边改成想暴露的宿主机端口
+    volumes:
+      - ./data:/app/data      # 数据持久化（勿删）
+    environment:
+      - PORT=3000
+      - DATA_DIR=/app/data
+      # - UPSTREAM_ORIGIN=https://4m1wmbcu3t32z.aiforce.cloud   # 原平台地址变了才需要改
+    restart: unless-stopped
