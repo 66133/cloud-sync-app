@@ -1,0 +1,8 @@
+# 运行时数据（每台部署实例各自持有，绝不进版本库）
+data/
+nohup.out
+*.log
+
+# 系统文件
+.DS_Store
+Thumbs.db
