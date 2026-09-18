@@ -1,0 +1,10 @@
+# 本地运行数据与系统文件不进镜像
+data/
+*.log
+.git/
+node_modules/
+DEPLOY.md
+README.md
+deploy/
+deploy.sh
+docker-compose.yml
